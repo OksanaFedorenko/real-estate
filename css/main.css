@@ -10902,6 +10902,8 @@ img {
   }
 }
 
+/*INTRO
+========================*/
 .intro {
   min-height: 400px;
   padding: 50px 0;
@@ -11126,6 +11128,8 @@ img {
   }
 }
 
+/*SERVICES
+========================*/
 .services {
   min-height: 160px;
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#c3f2ed));
@@ -11174,6 +11178,8 @@ img {
   }
 }
 
+/*LISTING
+=====================*/
 .listing {
   background-color: #fff;
   font-family: "Arial", sans-serif;
@@ -11233,6 +11239,8 @@ img {
   height: 100%;
 }
 
+/*SECTION-FORM
+==========================*/
 .section-form {
   min-height: 200px;
   background-color: #5e8aa7;
@@ -11376,6 +11384,8 @@ img {
   }
 }
 
+/*FOOTER
+======================*/
 .footer {
   width: 100%;
   min-height: 230px;
