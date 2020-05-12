@@ -1,0 +1,6 @@
+.DS_Store
+*.psd
+Thumbs.db
+node_modules/
+*.zip
+*.rar

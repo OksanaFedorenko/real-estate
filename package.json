@@ -1,0 +1,14 @@
+{
+  "name": "real-estate",
+  "version": "1.0.0",
+  "description": "real estate site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oksana Fedorenko",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
+}
