@@ -1,0 +1,14 @@
+
+
+@mixin button($width, $height, $color1, $color2, $fz) {
+  width: $width;
+  height: $height;
+  background: $color1;
+  color: $white;
+  border: 2px solid #e3e0e4;
+  border-radius: 10px;
+  font-size: $fz;
+  &:hover {
+    background: $color2;
+  }
+}

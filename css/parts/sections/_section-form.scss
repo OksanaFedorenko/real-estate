@@ -26,8 +26,16 @@
     }
   }
   &__btn {
-    font-size: 16px;
-    height: 35px;
+    @include button(90px, 35px, $btn-blue, #477d9e, 16px);
+    padding: 0 20px;
+    /*font-size: 16px;
+    height: 35px;*/
+  }
+  &__btn2 {
+    @include button(110px, 35px, $btn-blue, #477d9e, 16px);
+    padding: 0 20px;
+    /*font-size: 16px;
+    height: 35px;*/
   }
   &__title {
     color: $white;
@@ -78,18 +86,13 @@
       }
     }
     &-btn {
+      @include button(35%, 47px, $btn-orange, #ff7106, 22px);
       position: relative;
-      width: 35%;
-      height: 47px;
       border: none;
-      background: linear-gradient(to bottom, #ffa561, #ff7106);
-      color: $white;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
       padding-left: 20px;
       padding-bottom: 6px;
-      //transform: translateX(-50px);
-      &:hover {
-        background: #ff7106;
-      }
       &::before {
         position: absolute;
         content: '';

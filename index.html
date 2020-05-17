@@ -54,10 +54,6 @@
           <a class="navbar__auth" href="#">Sign in</a>
           <a class="navbar__auth" href="#">Sign up</a>
         </span>
-          <!--<ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Sign in</a></li>
-            <li class="breadcrumb-item"><a href="#">Sign up</a></li>
-          </ol>-->
       </div>
       </div>
     </nav>
@@ -136,7 +132,7 @@
 
             <div class="tab  tab-1 active" data-tab-1>
               <p>Address, Suburbs, Postcodes, or Regions</p>
-              <form action="" class="form">
+              <form action="" class="form" id="form">
                 <div class="form__input">
                   <input type="text" placeholder="Example: Wichita Falls, Texas 76301">
                 </div>
@@ -305,31 +301,34 @@
 
       <div class="row">
         <div class="col-lg-6">
-        <form class="section-form__form">
+        <form class="section-form__form" id="form-login">
           <p class="section-form__title">
             Member login
           </p>
           <div class="section-form__content d-flex align-items-center">
             <div class="form__input section-form__input">
-              <input type="text" placeholder="User name">
+              <input type="text" name="name" placeholder="User name">
+              <p class="form__error">Validation error</p>
             </div>
             <div class="form__input section-form__input">
               <input type="text" placeholder="Password">
+              <p class="form__error">Validation error</p>
             </div>
-              <button type="submit" class="section-form__btn form__btn">Login</button>
+              <button type="submit" class="section-form__btn">Login</button>
           </div>
         </form>
         </div>
       <div class="col-lg-6">
-        <form class="section-form__form">
+        <form class="section-form__form" id="form">
           <p class="section-form__title section-form__title--small">
             Subscribe to our weekly newsletter
           </p>
           <div class="section-form__content d-flex align-items-center">
             <div class="form__input section-form__input">
-              <input type="text" placeholder="Email address">
+              <input type="text" name="email" placeholder="Email address">
+              <p class="form__error">Validation error</p>
             </div>
-              <button type="submit" class="section-form__btn form__btn">Subscribe</button>
+              <button type="submit" class="section-form__btn section-form__btn2">Subscribe</button>
           </div>
         </form>
       </div>
@@ -344,13 +343,13 @@
         </div>
         <div class="col-lg-6">
         <div class="section-form__socials d-flex">
-          <a href="#" class="section-form__solials-link">
+          <a href="https://www.facebook.com/" class="section-form__solials-link" target="_blank">
             <img src="img/facebook.png" alt="icon">
           </a>
-          <a href="#" class="section-form__solials-link">
+          <a href="https://twitter.com/" class="section-form__solials-link" target="_blank">
             <img src="img/twitter.png" alt="icon">
           </a>
-          <a href="#" class="section-form__solials-link">
+          <a href="https://www.google.com/" class="section-form__solials-link" target="_blank">
             <img src="img/google+.png" alt="icon">
           </a>
         </div>
@@ -448,6 +447,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/form-validation.js"></script>
 </body>
 
 </html>
