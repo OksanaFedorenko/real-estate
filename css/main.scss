@@ -1,11 +1,12 @@
 @import "./parts/base/custom";
 
+
 // Bootstrap
 @import "../node_modules/bootstrap/scss/functions";
 @import '../node_modules/bootstrap/scss/variables';
 @import '../node_modules/bootstrap/scss/mixins';
 
-//@import '../node_modules/bootstrap/scss/root';
+@import '../node_modules/bootstrap/scss/root';
 @import '../node_modules/bootstrap/scss/reboot';
 @import '../node_modules/bootstrap/scss/grid';
 @import '../node_modules/bootstrap/scss/transitions'; //mobile-menu toggle
@@ -13,20 +14,14 @@
 @import '../node_modules/bootstrap/scss/nav';
 @import '../node_modules/bootstrap/scss/navbar';
 @import '../node_modules/bootstrap/scss/carousel';
+//@import '../node_modules/bootstrap/scss/buttons';
+@import '../node_modules/bootstrap/scss/modal';
 @import '../node_modules/bootstrap/scss/utilities';
 
-body {
-  min-width: 320px;
-  font-size: 16px;
-  background: #4b82a5;
-}
 
-img {
-  max-width: 100%;
-  height: auto;
-}
 
-@import "./parts/base/_mixins.scss";
+@import "./parts/base/colors";
+@import "./parts/base/_mixins";
 
 @import "./parts/sections/header";
 @import "./parts/sections/intro";
@@ -34,3 +29,15 @@ img {
 @import "./parts/sections/listing";
 @import "./parts/sections/section-form";
 @import "./parts/sections/footer";
+
+
+body {
+  min-width: 320px;
+  font-size: 16px;
+  background: $blue-1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

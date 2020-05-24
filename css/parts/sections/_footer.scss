@@ -4,8 +4,7 @@
 .footer {
   width: 100%;
   min-height: 230px;
-  background-color: #4b7d9b;
-  //background-color: red;
+  background-color: $blue-21;
   color: $white;
   font-size: 13px;
   padding: 20px 0;
@@ -26,12 +25,9 @@
     line-height: 1.7;
     font-weight: 300;
     &:hover {
-      color: black;
+      color: $black;
       text-decoration: none;
     }
-  }
-  &__item {
-
   }
   &__logo {
     margin-bottom: 35px;
@@ -129,17 +125,17 @@
   .footer__slider-control-next {
     left: 68%;
   }
-    .footer__list {
-    flex-direction: column;
-    align-items: center;
-    }
-    .footer__title {
-      text-align: center;
-    }
-    .footer__logo {
-      text-align: center;
-    }
-    .footer__copyright {
-      text-align: center;
-    }
+  .footer__list {
+  flex-direction: column;
+  align-items: center;
+  }
+  .footer__title {
+    text-align: center;
+  }
+  .footer__logo {
+    text-align: center;
+  }
+  .footer__copyright {
+    text-align: center;
+  }
 }

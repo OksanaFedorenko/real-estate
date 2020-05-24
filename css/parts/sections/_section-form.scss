@@ -2,40 +2,42 @@
 ==========================*/
 
 .section-form {
-  //width: 100%;
   min-height: 200px;
-  background-color: #5e8aa7;
+  background-color: $blue-18;
   padding: 30px 0;
   &__form {
-    //width: 100%;
     min-height: 100px;
-    background: linear-gradient(to bottom, #81bade, #689cbd);
+    background: linear-gradient(to bottom, $blue-19, $blue-20);
     border: 1px solid $white;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
+    //position: relative;
   }
   &__input {
     margin-right: 10px;
     margin-bottom: 0;
+    position: relative;
     input {
       width: 100%;
       height: 32px;
       border: none;
       border-radius: 5px;
+      outline: none;
     }
   }
   &__btn {
-    @include button(90px, 35px, $btn-blue, #477d9e, 16px);
+    @include button(90px, 35px, $btn-blue, $blue-6, 16px);
     padding: 0 20px;
-    /*font-size: 16px;
-    height: 35px;*/
+    outline: none;
   }
   &__btn2 {
-    @include button(110px, 35px, $btn-blue, #477d9e, 16px);
+    @include button(110px, 35px, $btn-blue, $blue-6, 16px);
     padding: 0 20px;
-    /*font-size: 16px;
-    height: 35px;*/
+    outline: none;
+    &:active {
+      outline: none;
+    }
   }
   &__title {
     color: $white;
@@ -65,7 +67,7 @@
     margin-bottom: 20px;
     &-text {
       height: 47px;
-      background: linear-gradient(to bottom, #81bade, #689cbd);
+      background: linear-gradient(to bottom, $blue-19, $blue-20);
       width: 65%;
       padding-top: 4px;
       text-align: center;
@@ -78,15 +80,13 @@
         width: 50px;
         height: 50px;
         clip-path: polygon(50% 0%, 50% 100%, 100% 50%);
-        background: linear-gradient(to bottom, #81bade, #689cbd);
+        background: linear-gradient(to bottom, $blue-19, $blue-20);
         top: 0;
         right: -23px;
-        //border-right: 1px solid $white;
-        //transform: rotate(45deg);
       }
     }
     &-btn {
-      @include button(35%, 47px, $btn-orange, #ff7106, 22px);
+      @include button(35%, 47px, $btn-orange, $orange, 22px);
       position: relative;
       border: none;
       border-top-left-radius: 0;
@@ -128,4 +128,31 @@
       width: 40%;
     }
   }
+}
+
+.error {
+  position: absolute;
+  //bottom: -52px;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  height: auto;
+  background-color: $light-blue;
+  color: red;
+  //border: 2px solid $white;
+  border-radius: 5px;
+  padding: 10px;
+  opacity: .9;
+}
+
+.error::before {
+      content: "\25B2";
+      position:absolute;
+      top:-12px;
+      left:45%;
+      font-size:14px;
+      line-height:14px;
+      color: $light-blue;
+      text-shadow:none;
+      display:block;
 }

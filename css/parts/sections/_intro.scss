@@ -11,7 +11,7 @@
   &__tab-wrapper {
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #5899c1, #4b82a5);
+    background: linear-gradient(to bottom, $blue-2, $blue-3);
     border-top-right-radius: 15px;
     position: relative;
   }
@@ -35,8 +35,8 @@
       height: 44px;
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
-      background: #c2f2ed;
-      color: #548bab;
+      background: $light-blue;
+      color: $blue-4;
       font-weight: bold;
       padding-top: 5px;
 
@@ -47,8 +47,8 @@
 
       &:hover,
       &.active {
-        color: rgb(56, 100, 194);
-        background: #5899c1;
+        color: $blue-11;
+        background: $blue-2;
         transition: all .3s ease-in-out;
         color: $white;
       }
@@ -77,9 +77,10 @@
     input {
       width: 100%;
       height: 50px;
-      border: 2px solid #316e94;
+      border: 2px solid $blue-5;
       border-radius: 15px;
       padding-left: 20px;
+      outline: none;
     }
   }
   &__select {
@@ -99,8 +100,9 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       -ms-appearance: none;
-      color: #347095;
+      color: $grey-1;
       font-size: 14px;
+      outline: none;
       &:focus {
         .hidden {
           display: none;
@@ -112,16 +114,13 @@
     margin-left: auto;
     text-align: center;
     display: block;
-    @include button(210px, 45px, $btn-blue, #477d9e, 22px);
+    @include button(210px, 45px, $btn-blue, $blue-6, 22px);
   }
 }
 
 
-
-
-
 .intro__slider {
-  border: 11px solid #e3e0e4;
+  border: 11px solid $grey-2
 }
 
 .intro__slider img {
@@ -139,11 +138,10 @@
   margin-right: 3px;
   margin-left: 3px;
   border-radius: 50%;
-  //background: $white;
 }
 
 .intro__slider-indicators li.active {
-  background-color: #2e6182;
+  background-color: $blue-7;
 }
 
 .intro__slider-caption {
@@ -156,10 +154,10 @@
   z-index: 10;
   padding-top: 5px;
   padding-bottom: 5px;
-  color: #fff;
+  color: $white;
   text-align: center;
-  background: #1e4862;
-  border-top: 1px solid #3886b7;
+  background: $blue-8;
+  border-top: 1px solid $blue-9;
 }
 
 .check {
@@ -187,35 +185,15 @@
     height: 18px;
     overflow: hidden;
     border-radius: 3px;
-    background-color: white;
+    background-color: $white;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    box-shadow: 0 0 0 0.1em #4A90E2;
+    box-shadow: 0 0 0 0.1em $blue-10;
   }
 }
 
 @media (max-width: 991px) {
   .intro__left {
     margin-bottom: 60px;
-  }
-}
-
-.form {
-  &.error {
-    border-color: red;
-  }
-  &__error {
-    margin-bottom: 0;
-    position: absolute;
-    bottom: -20px;
-    left: 15px;
-    font-size: 12px;
-    color: red;
-    font-weight: normal;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    &--show {
-      opacity: 1;
-    }
   }
 }

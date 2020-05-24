@@ -1,88 +1,119 @@
-$(document).ready(function () {
+//Login-form validation
 
-  $("#form-login").submit(function (e) {
-    e.preventDefault();
+let loginForm = document.querySelector("#login-form");
+let loginFields = loginForm.querySelectorAll(".login-field");
 
-    $(".form__input input").removeClass("error");
-    $(".form__input p").removeClass("form__error--show");
+loginForm.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    // RegExp
-    //const IS_EMAIL = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+  let errors = loginForm.querySelectorAll(".error");
 
-    const NAME = $('input[name="name"]').val();
-    const PASSWORD = $('input[name="name"]').val();
-    //const PHONE = $('input[name="phone"]').val();
-    //const MESSAGE = $('textarea[name="message"]').val();
+  for (let i = 0; i < errors.length; i++) {
+    errors[i].remove();
+  };
 
-    validateFields = () => {
-      let validateName = true;
-      let validatePassword = true;
-      
-      if (NAME.length < 3) {
-        $('input[name="name"]').addClass("error");
-        $('input[name="name"]').next().addClass("form__error--show");
-        validateName = false;
-      }
-      
-      //PASSWORD VALIDATION
-      //validate letter
-     /* if ( pswd.match(/[A-z]/) ) {
-          $('#letter').removeClass('invalid').addClass('valid');
-      } else {
-          $('#letter').removeClass('valid').addClass('invalid');
-      }
-      
-      //validate capital letter
-      if ( pswd.match(/[A-Z]/) ) {
-          $('#capital').removeClass('invalid').addClass('valid');
-      } else {
-          $('#capital').removeClass('valid').addClass('invalid');
-      }
-      
-      //validate number
-      if ( pswd.match(/\d/) ) {
-          $('#number').removeClass('invalid').addClass('valid');
-      } else {
-          $('#number').removeClass('valid').addClass('invalid');
-      }
+  for (let i = 0; i < loginFields.length; i++) {
 
-      if (validateName && validatePassword) {
-        return true;
-      } else {
-        return false;
-      }
+    if (!loginFields[i].value) {
+        let error = setStylesToError(generateError("The field cannot be blank"), loginFields[i]);
+        removeError(error, loginFields[i]);
+    }   
+  }
 
-    };*/
-
-    if (validateFields()) {
-      const data = {
-        name: NAME.trim(),
-        email: EMAIL
-      };
-      let form = $(this);
-      $.ajax({
-        type: "POST",
-        url: "mail.php",
-        // data: form.serialize(),
-        data: data,
-        success: function () {
-          console.log("submit form ==>", data);
-          $("#modal").addClass("modal--show");
-          $("body").addClass("hidden");
-          setTimeout(function () {
-            form.trigger("reset");
-          }, 1000);
-        },
-        error: function () {
-          console.log("ajax form error");
-        },
-      });
-    } else {
-      console.log("validation form error");
-    }
-  });
-
-
-  
-console.log("hellooooooooo");
 });
+
+//Subscribe-form validation
+
+let subscribeForm = document.querySelector("#subscribe-form");
+let email = subscribeForm.querySelector(".email-field");
+
+subscribeForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const email_reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  if (email.value == "") {
+    let error = setStylesToError(generateError("The field cannot be blank"), email);
+    removeError(error, email);
+  } else if (!email_reg.test(email.value)) {
+    let error = setStylesToError(generateError("Not a valid email"), email);
+    removeError(error, email);
+  }
+  
+});
+
+//Search-form validation
+
+let searchForm = document.querySelector("#search-form");
+let searchFields = searchForm.querySelectorAll(".search-field");
+console.log(searchFields);
+
+searchForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  
+  let warnings = searchForm.querySelectorAll(".warning");
+
+  for (let i = 0; i < warnings.length; i++) {
+    warnings[i].remove();
+  }
+
+
+    for (let i = 0; i < searchFields.length; i++) {
+      if (!searchFields[i].value || searchFields[i].value === "Select One") {
+        let error = generateErrorWarning("The field cannot be blank");
+        searchFields[i].parentElement.insertBefore(
+          error,
+          searchFields[i].nextSibling
+        );
+        searchFields[i].style.border = "1px solid red";
+        removeError(error, searchFields[i]);
+      }
+    }
+});
+
+
+
+
+
+
+function generateError(text) {
+  let error = document.createElement("div");
+  error.className = "error";
+  error.innerHTML = text;
+
+  return error;
+};
+
+function generateErrorWarning(text) {
+  let error = document.createElement("div");
+  error.className = "warning";
+  error.innerHTML = text;
+    error.style.color = "red";
+  return error;
+};
+
+function setStylesToError(errorElement, formField) {
+
+  formField.parentElement.insertBefore(errorElement, formField.nextSibling);
+  formField.style.border = "1px solid red";
+  let computedStyle = getComputedStyle(errorElement);
+  let errorHeight = parseInt(computedStyle.getPropertyValue("height"));
+  errorElement.style.bottom = `-${10 + errorHeight}px`;
+
+  return errorElement;
+};
+
+function removeError(errorElement, formField) {
+  setTimeout(() => {
+    errorElement.remove();
+    formField.style.border = "";
+    formField.value = "";
+  }, 2000);
+};
+
+/*function removeErrorWarning(errorElement, formField) {
+  setTimeout(() => {
+    errorElement.remove();
+    formField.value = "";
+  }, 2000);
+};*/

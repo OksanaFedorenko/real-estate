@@ -3,13 +3,12 @@
 
 .services {
   min-height: 160px;
-  background: linear-gradient(to bottom, $white, #c3f2ed);
+  background: linear-gradient(to bottom, $white, $light-blue);
   padding: 15px 0;
   &__title {
     display: flex;
-    //align-items: baseline;
     font-size: 22px;
-    color: #4484ad;
+    color: $blue-16;
     margin-bottom: 8px;
     &-text {
       margin: 0;
@@ -28,7 +27,7 @@
   }
   &__text {
     font-size: 13px;
-    color: #43515a;
+    color: $grey-3;
     line-height: 1.7;
   }
 }
