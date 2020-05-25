@@ -57,7 +57,6 @@ searchForm.addEventListener("submit", function (e) {
     warnings[i].remove();
   }
 
-
     for (let i = 0; i < searchFields.length; i++) {
       if (!searchFields[i].value || searchFields[i].value === "Select One") {
         let error = generateErrorWarning("The field cannot be blank");
@@ -72,6 +71,33 @@ searchForm.addEventListener("submit", function (e) {
 });
 
 
+//Register-form validation
+
+let registerForm = document.querySelector("#register-form");
+let registerFields = registerForm.querySelectorAll(".register-field");
+console.log(searchFields);
+
+registerForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  let warnings = registerForm.querySelectorAll(".warning");
+
+  for (let i = 0; i < warnings.length; i++) {
+    warnings[i].remove();
+  }
+
+  for (let i = 0; i < registerFields.length; i++) {
+    if (!registerFields[i].value || registerFields[i].value === "Select One") {
+      let error = generateErrorWarning("The field cannot be blank");
+      registerFields[i].parentElement.insertBefore(
+        error,
+        registerFields[i].nextSibling
+      );
+      registerFields[i].style.border = "1px solid red";
+      removeError(error, registerFields[i]);
+    }
+  }
+});
 
 
 
@@ -107,7 +133,7 @@ function removeError(errorElement, formField) {
   setTimeout(() => {
     errorElement.remove();
     formField.style.border = "";
-    formField.value = "";
+    //formField.value = "";
   }, 2000);
 };
 

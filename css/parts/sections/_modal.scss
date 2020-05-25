@@ -1,0 +1,24 @@
+.register {
+  background: linear-gradient(to bottom, $blue-2, $blue-3);
+  position: relative;
+  border-radius: 10px;
+  &__title {
+    color: $white;
+    font-size: 26px;
+    margin: 10px 20px 30px 20px;
+  }
+  &__close {
+    background: transparent;
+    font-size: 45px;
+    color: #fff;
+    outline: none;
+    border: none;
+}
+  &__btn {
+    @include button(210px, 45px, $btn-blue, $blue-6, 22px);
+    margin-bottom: 30px;
+  }
+  .form__input {
+    margin-bottom: 15px
+  }
+}

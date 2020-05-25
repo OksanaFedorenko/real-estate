@@ -7133,6 +7133,52 @@ button.bg-dark:focus {
   }
 }
 
+.register {
+  background: -webkit-gradient(linear, left top, left bottom, from(#5899c1), to(#4b82a5));
+  background: linear-gradient(to bottom, #5899c1, #4b82a5);
+  position: relative;
+  border-radius: 10px;
+}
+
+.register__title {
+  color: #fff;
+  font-size: 26px;
+  margin: 10px 20px 30px 20px;
+}
+
+.register__close {
+  background: transparent;
+  font-size: 45px;
+  color: #fff;
+  outline: none;
+  border: none;
+}
+
+.register__btn {
+  width: 210px;
+  height: 45px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#6ab1dc), to(#4b8cb4));
+  background: linear-gradient(to bottom, #6ab1dc, #4b8cb4);
+  color: #fff;
+  border: 2px solid #e3e0e4;
+  border-radius: 10px;
+  font-size: 22px;
+  outline: none;
+  margin-bottom: 30px;
+}
+
+.register__btn:hover {
+  background: #477d9e;
+}
+
+.register__btn:active {
+  outline: none;
+}
+
+.register .form__input {
+  margin-bottom: 15px;
+}
+
 body {
   min-width: 320px;
   font-size: 16px;

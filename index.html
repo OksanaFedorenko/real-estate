@@ -129,7 +129,7 @@
 
             <div class="tab  tab-1 active" data-tab-1>
               <p>Address, Suburbs, Postcodes, or Regions</p>
-              <form action="" class="form" id="search-form">
+              <form action="/" class="form" id="search-form">
                 <div class="form__input">
                   <input type="text" placeholder="Example: Wichita Falls, Texas 76301" class="search-field">
                 </div>
@@ -144,7 +144,7 @@
                   <div class="form__select">
                     <label for="home-property">Property Type:</label>
                     <select name="Property Types" id="home-property" class="custom-select search-field">
-                      <option value="Select One" class="hidden">Select One</option>
+                      <option value="Select One" class="hidden" selected>Select One</option>
                       <option value="Houses">Houses</option>
                       <option value="Condo/co-ops">Condo/co-ops</option>
                       <option value="Apartments">Apartments</option>
@@ -154,7 +154,7 @@
                   <div class="form__select">
                     <label for="bedrooms">Bedrooms:</label>
                     <select name="Bedrooms" class="custom-select search-field" id="bedrooms">
-                      <option value="Select One" class="hidden">Select One</option>
+                      <option value="Select One" class="hidden" selected>Select One</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -445,19 +445,31 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+    <div class="modal-content register">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <img src="img/logo.png" alt="logo">
+        <button type="button" class="register__close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <h5 class="modal-title register__title" id="exampleModalLabel">Registration form</h5>
+        <form action="/" class="register-form" id="register-form">
+          <div class="form__input">
+            <input type="text" placeholder="Name" name="name" class="register-field">
+          </div>
+          <div class="form__input">
+            <input type="email" placeholder="Email address" name="email" class="register-field">
+          </div>
+          <div class="form__input">
+            <input type="password" placeholder="Password" name="password" class="register-field">
+          </div>
+          <div class="form__input">
+            <input type="password" placeholder="Password confirmation" name="password-confirmation"
+              class="register-field">
+          </div>
+          <button type="submit" class="register__btn">Register</button>
+        </form>
       </div>
     </div>
   </div>
