@@ -1,3 +1,5 @@
+const email_reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 //Login-form validation
 
 let loginForm = document.querySelector("#login-form");
@@ -30,8 +32,6 @@ let email = subscribeForm.querySelector(".email-field");
 subscribeForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const email_reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
   if (email.value == "") {
     let error = setStylesToError(generateError("The field cannot be blank"), email);
     removeError(error, email);
@@ -57,17 +57,8 @@ searchForm.addEventListener("submit", function (e) {
     warnings[i].remove();
   }
 
-    for (let i = 0; i < searchFields.length; i++) {
-      if (!searchFields[i].value || searchFields[i].value === "Select One") {
-        let error = generateErrorWarning("The field cannot be blank");
-        searchFields[i].parentElement.insertBefore(
-          error,
-          searchFields[i].nextSibling
-        );
-        searchFields[i].style.border = "1px solid red";
-        removeError(error, searchFields[i]);
-      }
-    }
+  checkFieldsPresence(searchFields);
+
 });
 
 
@@ -76,6 +67,9 @@ searchForm.addEventListener("submit", function (e) {
 let registerForm = document.querySelector("#register-form");
 let registerFields = registerForm.querySelectorAll(".register-field");
 console.log(searchFields);
+let password = registerForm.querySelector(".password");
+let passwordConfirmation = registerForm.querySelector(".password-confirmation");
+let registerEmail = registerForm.querySelector(".email-field");
 
 registerForm.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -86,21 +80,23 @@ registerForm.addEventListener("submit", function (e) {
     warnings[i].remove();
   }
 
-  for (let i = 0; i < registerFields.length; i++) {
-    if (!registerFields[i].value || registerFields[i].value === "Select One") {
-      let error = generateErrorWarning("The field cannot be blank");
-      registerFields[i].parentElement.insertBefore(
-        error,
-        registerFields[i].nextSibling
-      );
-      registerFields[i].style.border = "1px solid red";
-      removeError(error, registerFields[i]);
+    checkFieldsPresence(registerFields);
+
+    if (password.value !== passwordConfirmation.value) {
+      let error = generateErrorWarning("Passwords doesn't match");
+      password.parentElement.insertBefore(error, password.nextSibling);
+      removeError(error, password);
     }
-  }
-});
+
+    if (!email_reg.test(registerEmail.value) && registerEmail.value !== "") {
+      let error = generateErrorWarning("Not a valid email");
+      registerEmail.parentElement.insertBefore(error, registerEmail.nextSibling);
+      removeError(error, registerEmail);
+    }
+  });
 
 
-
+//FUNCTIONS
 
 function generateError(text) {
   let error = document.createElement("div");
@@ -114,7 +110,7 @@ function generateErrorWarning(text) {
   let error = document.createElement("div");
   error.className = "warning";
   error.innerHTML = text;
-    error.style.color = "red";
+  error.style.color = "red";
   return error;
 };
 
@@ -137,9 +133,14 @@ function removeError(errorElement, formField) {
   }, 2000);
 };
 
-/*function removeErrorWarning(errorElement, formField) {
-  setTimeout(() => {
-    errorElement.remove();
-    formField.value = "";
-  }, 2000);
-};*/
+function checkFieldsPresence(formField) {
+  for (let i = 0; i < formField.length; i++) {
+    if (!formField[i].value || formField[i].value === "Select One") {
+      let error = generateErrorWarning("The field cannot be blank");
+      formField[i].parentElement.insertBefore(error, formField[i].nextSibling);
+      formField[i].style.border = "1px solid red";
+      removeError(error, formField[i]);
+    }
+  }
+}
+
